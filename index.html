@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Ti ❤️</title>
+  <style>
+    /* Estilo general */
+    body {
+      height: 100%;
+      background-attachment: fixed; 
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 50px;
+      animation: aparecer 2s ease-in-out;
+    }
+
+    p {
+      font-size: 1.5rem;
+      margin: 20px auto;
+      max-width: 600px;
+      line-height: 1.8;
+      animation: aparecer 2s ease-in-out 1s;
+    }
+
+    /* Botón interactivo */
+    .boton {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      color: #ff758c;
+      background-color: #fff;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .boton:hover {
+      transform: scale(1.1);
+      background-color: #ffe0e6;
+    }
+
+    /* Animación de texto */
+    @keyframes aparecer {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Corazones flotantes */
+    .corazones {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .corazon {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      animation: flotar 5s infinite ease-in-out;
+    }
+
+    .corazon:nth-child(odd) {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    @keyframes flotar {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Título principal -->
+  <h1>Para la persona más especial en mi vida ❤️</h1>
+
+  <!-- Mensaje -->
+  <p>
+    Hoy quiero recordarte lo increíble que eres. Eres mi alegría, mi inspiración, y la razón de mi sonrisa todos los días. 
+    Cada momento contigo es un tesoro que guardo en mi corazón. Gracias por ser tú y por llenar mi vida de amor. 🥰
+  </p>
+
+  <!-- Botón interactivo -->
+  <button class="boton" onclick="alert('Te amo mucho Jandy ❤️')">Haz clic aquí</button>
+
+  <!-- Corazones flotantes -->
+  <div class="corazones">
+    <!-- Generar varios corazones -->
+    <div class="corazon" style="left: 10%; animation-duration: 12s;"></div>
+    <div class="corazon" style="left: 30%; animation-duration: 15s;"></div>
+    <div class="corazon" style="left: 50%; animation-duration: 10s;"></div>
+    <div class="corazon" style="left: 70%; animation-duration: 18s;"></div>
+    <div class="corazon" style="left: 90%; animation-duration: 20s;"></div>
+  </div>
+</body>
+</html>
