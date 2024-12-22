@@ -177,26 +177,34 @@
   </div>
 
 
-  <audio id="audio" src="cancion.mp3" preload="auto"></audio>
 
 </body>
 
 <script>
+  const audio = new Audio("cancion.mp3");
+
   const validNames = ["mathias", "matias", "matías"];
   
   const name = prompt("¿Cuál es mi primer nombre?");
   if (name && validNames.includes(name.toLowerCase())) {
     document.querySelector(".carta").style.display = "block";
-    const audio = document.getElementById("audio");
-      
-    // Añadir un retraso para garantizar que el audio se reproduzca
-    setTimeout(function() {
-      audio.play(); // Reproduce la canción
-    }, 500); 
+    // Intentamos reproducir el audio
+    audio.play().catch(() => {
+      alert(
+        "Tu navegador bloquea la reproducción automática de audio. Por favor, permite el sonido o haz clic en cualquier parte de la página para activar la música."
+      );
+
+      // Habilitamos reproducción manual
+      document.body.addEventListener("click", () => {
+        audio.play();
+      });
+    });
   } else {
-    alert("Nombre incorrecto o vacío. ¡Vuelve a intentarlo!"); // Muestra el mensaje de error si el nombre es incorrecto o vacío
+    alert("Nombre incorrecto o vacío. ¡Vuelve a intentarlo!");
   }
 </script>
+
+
 
 
 </html>
