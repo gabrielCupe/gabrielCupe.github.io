@@ -13,10 +13,10 @@
       font-family: 'Courier New', monospace;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start; /* Cambié a flex-start para que la carta quede más arriba */
       background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
       background-size: cover;
-      overflow: hidden;
+      overflow-y: auto; /* Habilita el scroll vertical */
     }
 
     /* Caja principal */
@@ -29,6 +29,7 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       text-align: center;
       animation: aparecer 2s ease-in-out;
+      margin-top: 20px; /* Agregué espacio en la parte superior */
     }
 
     /* Animación de entrada */
@@ -114,6 +115,13 @@
       transform: scale(1.1);
       background: #ff506b;
     }
+
+    /* Ajustes para la imagen */
+    .footer img {
+      max-width: 50%; /* Reduce el tamaño de la imagen */
+      margin-top: 20px;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -121,14 +129,29 @@
   <div class="carta">
     <h1>Para mi Jandysita 💖</h1>
     <p>
-      Quiero que sepas lo importante que eres para mí. 
-      Cada día a tu lado es un regalo que atesoro en mi corazón. 🥰 
-      Tu sonrisa ilumina mis días y tu presencia hace mi mundo mucho mejor. 
-      Gracias por ser mi inspiración, mi alegría y mi mayor bendición. 
-      Te amo más de lo que las palabras pueden expresar. 💕
+        "Realmente, el tiempo pasa volando. 29 de septiembre fue el día que nos conocimos, y desde eso mi vida se ha tornado más feliz. Lo único que me lamento es no haberte conocido antes, hubiéramos tenido más tiempo. No veo esto como un final, sino como un nuevo inicio, incluso aunque sea más tiempo, no va a cambiar lo que siento por ti. No sé si volveré a verte, y puede que el día en que te entregue esto sea la última vez que te vea en mucho tiempo, incluso si nos volvemos a ver en el reinicio a de clases, te encontraré y buscaré la forma de estar contigo. De no ser por nuestra edad, no habría barreras y podría expresar las miles de cosas que siento por tí.
+
+        Te amo tal y como eres. Cuando me preguntan qué me fijé en ti, simplemente no puedo responder, hay cosas que simplemente no existen palabras para describirlas. Si pudiera escribir lo que me gusta de ti en un grano de arena, no habría la suficiente como para expresar todo.
+        
+        En unos días se cumplirán dos meses desde que tomé la mejor decisión que pude tomar este año. Te Amo Jandy"
     </p>
-    <div class="corazon">❤️</div>
-    <a href="#" class="boton" onclick="alert('¡Te amo muchísimo, Jandy! 💖')">Haz clic aquí</a>
+
+    <div class="footer">
+        <p>Diciembre 2024<br>En un mundo lleno de dudas y riesgos, si se puede estar seguro de algo, te amo.</p>
+        <img src="gatitos.png" alt="Dibujo de gatitos enamorados">
+      </div>
+
   </div>
 </body>
+
+<script>
+    const validNames = ["mathias", "matias", "matías"];
+
+    const name = prompt("¿Cuál es mi primer nombre?");
+    if (name && validNames.includes(name.toLowerCase())) {
+      document.getElementById("carta").style.display = "block";
+    } else {
+      alert("Nombre incorrecto. ¡Vuelve a intentarlo!");
+    }
+</script>
 </html>
