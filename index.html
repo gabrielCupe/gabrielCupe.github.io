@@ -20,6 +20,14 @@
     }
 
     /* Caja principal */
+    .cuadro{
+      justify-content: space-between;
+      display: flex;
+    }
+        .area{
+      height: 40px;
+      width: 500px;
+      }
     .carta {
       width: 90%;
       max-width: 600px;
@@ -142,17 +150,18 @@
         </p>
         <img src="gatitos.png" alt="Dibujo de gatitos enamorados">
 
-    <div>
+      </div>
       
-  <form
-  action="https://formspree.io/f/xbllrpvl"
-  method="POST">
-  <label>
-    <textarea name="message" placeholder="Escribeme"></textarea>
-  </label>
-  <button type="submit">Enviar</button>
-</form>
-    </div>
+    <div class="cuadro">
+       <form
+        action="https://formspree.io/f/xbllrpvl"
+        method="POST">
+       <label>
+           <textarea name="message" placeholder="Escribeme" class="area"></textarea>
+       </label>
+       <button type="submit" class="boton">Enviar</button>
+    </form>
+
       </div>
 
   </div>
