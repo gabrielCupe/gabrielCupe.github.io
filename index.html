@@ -163,18 +163,21 @@
       </div>
       
     <div class="cuadro">
-       <form
-        action="https://formspree.io/f/xbllrpvl"
-        method="POST">
-       <label>
-           <textarea name="message" placeholder="Escribeme" class="area"></textarea>
-       </label>
-       <button type="submit" class="boton">Enviar</button>
-    </form>
+      <form action="https://formspree.io/f/xbllrpvl" method="POST">
+        <input type="hidden" name="_redirect" value="https://tu-pagina-de-destino.com">
+        <label>
+          <textarea name="message" placeholder="Escribeme" class="area"></textarea>
+        </label>
+        <button type="submit" class="boton">Enviar</button>
+      </form>
+      
 
       </div>
 
   </div>
+
+
+  <audio id="audio" src="cancion.mp3" preload="auto"></audio>
 
 </body>
 
@@ -183,7 +186,13 @@
   
   const name = prompt("¿Cuál es mi primer nombre?");
   if (name && validNames.includes(name.toLowerCase())) {
-    document.querySelector(".carta").style.display = "block"; // Muestra el contenido si el nombre es correcto
+    document.querySelector(".carta").style.display = "block";
+    const audio = document.getElementById("audio");
+      
+    // Añadir un retraso para garantizar que el audio se reproduzca
+    setTimeout(function() {
+      audio.play(); // Reproduce la canción
+    }, 500); 
   } else {
     alert("Nombre incorrecto o vacío. ¡Vuelve a intentarlo!"); // Muestra el mensaje de error si el nombre es incorrecto o vacío
   }
