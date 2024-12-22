@@ -145,13 +145,14 @@
 </body>
 
 <script>
-    const validNames = ["mathias", "matias", "matías"];
-
-    const name = prompt("¿Cuál es mi primer nombre?");
-    if (name && validNames.includes(name.toLowerCase())) {
-      document.getElementById("carta").style.display = "block";
-    } else {
-      alert("Nombre incorrecto. ¡Vuelve a intentarlo!");
-    }
+  const validNames = ["mathias", "matias", "matías"];
+  
+  const name = prompt("¿Cuál es mi primer nombre?");
+  if (name && validNames.includes(name.toLowerCase())) {
+    document.getElementById("carta").style.display = "block"; // Muestra el contenido si el nombre es correcto
+  } else {
+    alert("Nombre incorrecto o vacío. ¡Vuelve a intentarlo!"); // Muestra el mensaje de error si el nombre es incorrecto o vacío
+  }
 </script>
+
 </html>
