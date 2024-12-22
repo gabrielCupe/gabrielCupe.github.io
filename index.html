@@ -19,15 +19,6 @@
       overflow-y: auto; /* Habilita el scroll vertical */
     }
 
-    /* Caja principal */
-    .cuadro{
-      justify-content: space-between;
-      display: flex;
-    }
-        .area{
-      height: 40px;
-      width: 500px;
-      }
     .carta {
       width: 90%;
       max-width: 600px;
@@ -105,24 +96,43 @@
       }
     }
 
-    /* Botón interactivo */
-    .boton {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      background: #ff758c;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s, background 0.3s;
-    }
+    /* Ajustes para el contenedor del cuadro de texto y el botón */
+.cuadro {
+  display: flex;
+  flex-direction: column; /* Alinea los elementos en columna */
+  align-items: center; /* Centra los elementos */
+  margin-top: 20px; /* Agrega espacio entre la carta y el formulario */
+}
 
-    .boton:hover {
-      transform: scale(1.1);
-      background: #ff506b;
-    }
+.area {
+  width: 100%; /* Hace que el área de texto ocupe todo el ancho disponible */
+  max-width: 500px; /* Evita que el cuadro se haga demasiado grande */
+  height: 100px; /* Establece una altura adecuada */
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px; /* Agrega espacio debajo del cuadro de texto */
+}
+
+.boton {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #ff758c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, background 0.3s;
+  width: 50%; /* Hace que el botón ocupe el 100% del ancho disponible */
+  max-width: 500px; /* Evita que el botón sea demasiado grande */
+  text-align: center; /* Centra el texto del botón */
+}
+
+.boton:hover {
+  transform: scale(1.1);
+  background: #ff506b;
+}
+
 
     /* Ajustes para la imagen */
     .footer img {
