@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para mi Jandysita 💕</title>
+  <style>
+    /* Configuración global */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Cambié a flex-start para que la carta quede más arriba */
+      background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+      background-size: cover;
+      overflow-y: auto; /* Habilita el scroll vertical */
+    }
+
+    .carta {
+      width: 90%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      animation: aparecer 2s ease-in-out;
+      margin-top: 20px; /* Agregué espacio en la parte superior */
+    }
+
+    /* Animación de entrada */
+    @keyframes aparecer {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* Encabezado romántico */
+    h1 {
+      font-size: 2.5rem;
+      color: #ff758c;
+      animation: latido 1s infinite ease-in-out;
+    }
+
+    /* Animación del latido */
+    @keyframes latido {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Texto del mensaje */
+    p {
+      font-size: 1.2rem;
+      color: #555;
+      margin: 20px 0;
+      line-height: 1.8;
+      animation: desvanecer 3s ease-in-out 1s;
+    }
+
+    @keyframes desvanecer {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Corazón animado */
+    .corazon {
+      font-size: 4rem;
+      color: #ff758c;
+      animation: flotar 4s infinite;
+    }
+
+    @keyframes flotar {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    /* Ajustes para el contenedor del cuadro de texto y el botón */
+.cuadro {
+  display: flex;
+  flex-direction: column; /* Alinea los elementos en columna */
+  align-items: center; /* Centra los elementos */
+  margin-top: 20px; /* Agrega espacio entre la carta y el formulario */
+}
+
+.area {
+  width: 100%; /* Hace que el área de texto ocupe todo el ancho disponible */
+  max-width: 500px; /* Evita que el cuadro se haga demasiado grande */
+  height: 100px; /* Establece una altura adecuada */
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px; /* Agrega espacio debajo del cuadro de texto */
+}
+
+.boton {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background: #ff758c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, background 0.3s;
+  width: 50%; /* Hace que el botón ocupe el 100% del ancho disponible */
+  max-width: 500px; /* Evita que el botón sea demasiado grande */
+  text-align: center; /* Centra el texto del botón */
+}
+
+.boton:hover {
+  transform: scale(1.1);
+  background: #ff506b;
+}
+
+
+    /* Ajustes para la imagen */
+    .footer img {
+      max-width: 50%; /* Reduce el tamaño de la imagen */
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Carta -->
+<div class="carta" style="display: block;">
+    <h1>Para mi amorsito Jandy 😸💖</h1>
+    <p>
+        "Realmente, el tiempo pasa volando. 29 de septiembre fue el día que nos conocimos, y desde eso mi vida se ha tornado más feliz. Lo único que me lamento es no haberte conocido antes, hubiéramos tenido más tiempo. No veo esto como un final, sino como un nuevo inicio, incluso aunque sea más tiempo, no va a cambiar lo que siento por ti. No sé si volveré a verte, y puede que el día en que te entregue esto sea la última vez que te vea en mucho tiempo, incluso si nos volvemos a ver en el reinicio a de clases, te encontraré y buscaré la forma de estar contigo. De no ser por nuestra edad, no habría barreras y podría expresar las miles de cosas que siento por tí.
+
+        Te amo tal y como eres. Cuando me preguntan qué me fijé en ti, simplemente no puedo responder, hay cosas que simplemente no existen palabras para describirlas. Si pudiera escribir lo que me gusta de ti en un grano de arena, no habría la suficiente como para expresar todo lo que siento.
+        
+        En unos días se cumplirán dos meses desde que tomé la mejor decisión que pude tomar este año. Te Amo Jandy"
+    </p>
+
+    <div class="footer">
+        <p>Diciembre 2024<br>En un mundo lleno de dudas y riesgos, si puedo estar seguro de algo, es que 
+          TE AMO.
+        </p>
+        <img src="gatitos.png" alt="Dibujo de gatitos enamorados">
+
+      </div>
+      
+    <div class="cuadro">
+      <form action="https://formspree.io/f/xbllrpvl" method="POST">
+        <input type="hidden" name="_redirect" value="https://tu-pagina-de-destino.com">
+        <label>
+          <textarea name="message" placeholder="Escribeme" class="area"></textarea>
+        </label>
+        <button type="submit" class="boton">Enviar</button>
+      </form>
+      
+
+      </div>
+
+  </div>
+
+
+
+</body>
+
+<script>
+  const audio = new Audio("cancion.mp3");
+    audio.play().catch(() => {
+      alert(
+        "Tu navegador bloquea la reproducción automática de audio. Por favor, permite el sonido o haz clic en cualquier parte de la página para activar la música."
+      );
+
+      // Habilitamos reproducción manual
+      document.body.addEventListener("click", () => {
+        audio.play();
+      });
+    });
+</script>
+
+
+
+
+</html>
