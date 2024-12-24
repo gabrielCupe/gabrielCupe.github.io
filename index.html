@@ -5,19 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cartas para Jandy 💕</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Courier New', monospace;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      height: 100vh;
-      background-image: url('fondo.png'); /* Ruta de tu imagen de fondo */
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Courier New', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: url('fondo.png') no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed; /* O 'scroll' si 'fixed' sigue causando problemas */
+  overflow-y: auto;
+}
+
 
     /* Contenedor principal */
     .container {
