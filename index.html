@@ -19,6 +19,78 @@ body {
   overflow-y: auto;
 }
 
+.verification {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: #ffffff;
+  max-width: 400px;
+  width: 90%;
+  margin: auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.verification h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.verification p {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.verification input {
+  margin: 10px 0;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333333;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.verification input:focus {
+  outline: none;
+  border: 2px solid #ffffff;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.verification button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: #ffffff;
+  color: #00aaff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.verification button:hover {
+  transform: scale(1.1);
+  background: #00aaff;
+  color: #ffffff;
+}
+
+.verification button:active {
+  transform: scale(0.95);
+  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.3);
+}
 
     /* Contenedor principal */
     .container {
@@ -158,12 +230,26 @@ body {
 </head>
 <body>
 
-  <div class="container">
+  <div class="verification">
+    <h2>Verificación</h2>
+    <p>¿Como se llama el gato que aparece en la portada?</p>
+    <input type="text" id="question1" placeholder="Ingresa tu respuesta">
+    <p>¿A que carrera de la UNI estoy postulando?</p>
+    <input type="text" id="question2" placeholder="Ingresa tu respuesta">
+    <button onclick="verifyAnswers()">Verificar</button>
+  </div>
+  
+
+
+
+
+
+  <div class="container" style="display: none;">
     <!-- Bloque de la izquierda -->
     <div class="left-container">
       <!-- Bloque de mensaje -->
       <div class="message-block">
-        <p>Quiero saber si estas bien, no sabes lo mucho que me cuesta escribir esto, creo que, esta ves, ya nadie mas nos va a apoyar, por qué la vida es asi. Tu mamá estará mas alerta a todo lo que hagas, acepta lo que te diga, la verdad, es que se nos hará mucho mas complicado comunicarnos, ayer me amenazó con denunciarme si te volvía a escribir, no se que opine al respecto tu hermana, voy a disimular todo esto, al igual que tambien quiero que tu lo hagas,quizas el tiempo haga pasar todo, solo pido que en el momento que leas esto, sigas conservando esa confianza que siempre le tenías. Una vez me dijo, "el que ama, espera" y si es la única forma en la cúal puedo no perderte, aunque me cueste hacerlo lo haré, pero, no significa necesariamente dejar de saber absolutamente nada uno del otro,actualizaré este mensaje a las 9pm de manera interdiaria, no podemos hablarnos a cada rato, de lo contrario podemos agravar mas las cosas, solo quiero que, seas feliz, pase lo que pase, quiero que sonrias, no quiero verte triste, no llores, ten fe que, tarde o temprano todo esto acabará, los años pasan rápido, espero puedas leer esto. </p>
+        <p>Quiero saber si estas bien, no sabes lo mucho que me cuesta escribir esto, creo que, esta ves, ya nadie mas nos va a apoyar, por qué la vida es asi. Tu mamá estará mas alerta a todo lo que hagas, no la juzgo, creo que como cualquier madre se preocupa acerca del bienestar de sus hijos y con quienes anda, no puedo hecharle la culpa de nada,ni reprocharle o justificarme, acepta lo que te diga, la verdad, es que se nos hará mucho mas complicado comunicarnos, ayer me amenazó con denunciarme si te volvía a escribir, no se que opine al respecto tu hermana, voy a disimular todo esto, al igual que tambien quiero que tu lo hagas,quizas el tiempo haga pasar todo, solo pido que en el momento que leas esto, sigas conservando esa confianza que siempre le tenías. Una vez me dijo, "el que ama, espera" y si es la única forma en la cúal puedo no perderte, aunque me cueste hacerlo lo haré, pero, no significa necesariamente dejar de saber absolutamente nada uno del otro,actualizaré este mensaje a las 9pm de manera interdiaria, no podemos hablarnos a cada rato, de lo contrario podemos agravar mas las cosas, solo quiero que, seas feliz, pase lo que pase, quiero que sonrias, no quiero verte triste, no llores, ten fe que, tarde o temprano todo esto acabará, los años pasan rápido, espero puedas leer esto. </p>
       </div>
 
       <!-- Formulario para enviar mensaje -->
@@ -197,3 +283,21 @@ body {
 
 </body>
 </html>
+<script>
+  function verifyAnswers() {
+    const question1 = document.getElementById('question1').value.trim().toLowerCase();
+    const question2 = document.getElementById('question2').value.trim().toLowerCase();
+
+    // Respuestas correctas
+    const correctAnswer1 = 'azul';
+    const correctAnswer2 = ['ingenieria quimica', 'ing quimica', 'ing. quimica'];
+
+    if (question1 === correctAnswer1 && correctAnswer2.some(answer => question2.includes(answer))) {
+      document.querySelector('.verification').style.display = 'none';
+      document.querySelector('.container').style.display = 'flex';
+      document.body.classList.add('content-visible');
+    } else {
+      alert('Respuestas incorrectas. Intenta nuevamente.');
+    }
+  }
+</script>
