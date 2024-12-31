@@ -43,4 +43,16 @@ const estrellas = [
   
 	infoDiv.style.display = 'block';  // Hacer visible el cuadro de información
   }
+
+// Agregar un evento de clic en el documento
+document.addEventListener('click', (event) => {
+  // Verificar si el clic fue fuera del cuadro de información
+  const infoDiv = document.getElementById('info-estrella');
+  const isClickInside = infoDiv.contains(event.target) || event.target.closest('.estrella-constelacion');
   
+  // Si el clic fue fuera del cuadro de información, ocultarlo
+  if (!isClickInside) {
+    infoDiv.style.display = 'none';
+  }
+});
+
