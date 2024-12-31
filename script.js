@@ -1,15 +1,15 @@
 // Estrellas con sus respectivas rutas de imagen, texto y fecha
 const estrellas = [
-	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/1.jpg', texto: 'Estrella 1: Una estrella brillante.', fecha: '2024-12-30' },
-	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/2.jpg', texto: 'Estrella 2: La luz más fuerte del cielo.', fecha: '2024-12-25' },
-	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/3.jpg', texto: 'Estrella 3: Un faro de esperanza.', fecha: '2024-11-10' },
-	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/4.jpg', texto: 'Estrella 4: Una estrella distante.', fecha: '2024-07-15' },
-	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/5.jpg', texto: 'Estrella 5: El guardián del cielo.', fecha: '2024-06-30' },
-	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/6.jpg', texto: 'Estrella 6: Brillando con fuerza.', fecha: '2024-12-01' },
-	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/7.jpg', texto: 'Estrella 7: Lejos pero visible.', fecha: '2024-08-12' },
-	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/8.jpg', texto: 'Estrella 8: La más antigua.', fecha: '2024-09-20' },
-	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/9.jpg', texto: 'Estrella 9: Hermosa y brillante.', fecha: '2024-10-10' },
-	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/10.jpg', texto: 'Estrella 10: Un punto de luz.', fecha: '2024-12-05' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/1.jpg', texto: 'Estrella 1: Esta fue la primera ves que, me enviaste foto cara.', fecha: '2024-10' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/2.jpg', texto: 'Estrella 2: Me gusta esta foto kiki.', fecha: '2024-10' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/3.jpg', texto: 'Estrella 3: Segunda foto que me enviaste.', fecha: '2024-10' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/4.jpg', texto: 'Estrella 4: Recuerdo que, me dijiste que te dolìa usar esos tacos', fecha: '2024-10' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/5.jpg', texto: 'Estrella 5: Foto Poly 🦜', fecha: '2024-10' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/6.jpg', texto: 'Estrella 6: Cuando veo esto, lagrimeo un poco, de verdad gracias.', fecha: '2024-10' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/7.jpg', texto: 'Estrella 7: Relajadito.', fecha: '2024-11' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/8.jpg', texto: 'Estrella 8: Mango helado 🥭.', fecha: '2024-10' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/9.jpg', texto: 'Estrella 9: Realmente, Te ves muy linda con la vincha <3.', fecha: '2024-11' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'fotos/10.jpg', texto: 'Estrella 10: Foto kiki, Te amo Jandy', fecha: '2024-11' },
 	// Continúa para las demás estrellas...
 	// Aquí puedes agregar hasta 30 o más estrellas con su propio texto y fecha
   ];
