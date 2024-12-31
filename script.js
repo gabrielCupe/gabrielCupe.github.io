@@ -1,194 +1,65 @@
-function Star(id, x, y){
-	this.id = id;
-	this.x = x;
-	this.y = y;
-	this.r = Math.floor(Math.random()*2)+1;
-	var alpha = (Math.floor(Math.random()*10)+1)/10/2;
-	this.color = "rgba(255,255,255,"+alpha+")";
-}
-
-Star.prototype.draw = function() {
-	ctx.fillStyle = this.color;
-	ctx.shadowBlur = this.r * 2;
-	ctx.beginPath();
-	ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
-	ctx.closePath();
-	ctx.fill();
-}
-
-Star.prototype.move = function() {
-	this.y -= .15 + params.backgroundSpeed/100;
-	if (this.y <= -10) this.y = HEIGHT + 10;
-	this.draw();
-}
-
-
-function Dot(id, x, y, r) {
-	this.id = id;
-	this.x = x;
-	this.y = y;
-	this.r = Math.floor(Math.random()*5)+1;
-	this.maxLinks = 2;
-	this.speed = .5;
-	this.a = .5;
-	this.aReduction = .005;
-	this.color = "rgba(255,255,255,"+this.a+")";
-	this.linkColor = "rgba(255,255,255,"+this.a/4+")";
-
-	this.dir = Math.floor(Math.random()*140)+200;
-}
-
-Dot.prototype.draw = function() {
-	ctx.fillStyle = this.color;
-	ctx.shadowBlur = this.r * 2;
-	ctx.beginPath();
-	ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
-	ctx.closePath();
-	ctx.fill();
-}
-
-Dot.prototype.link = function() {
-	if (this.id == 0) return;
-	var previousDot1 = getPreviousDot(this.id, 1);
-	var previousDot2 = getPreviousDot(this.id, 2);
-	var previousDot3 = getPreviousDot(this.id, 3);
-	if (!previousDot1) return;
-	ctx.strokeStyle = this.linkColor;
-	ctx.moveTo(previousDot1.x, previousDot1.y);
-	ctx.beginPath();
-	ctx.lineTo(this.x, this.y);
-	if (previousDot2 != false) ctx.lineTo(previousDot2.x, previousDot2.y);
-	if (previousDot3 != false) ctx.lineTo(previousDot3.x, previousDot3.y);
-	ctx.stroke();
-	ctx.closePath();
-}
-
-function getPreviousDot(id, stepback) {
-	if (id == 0 || id - stepback < 0) return false;
-	if (typeof dots[id - stepback] != "undefined") return dots[id - stepback];
-	else return false;//getPreviousDot(id - stepback);
-}
-
-Dot.prototype.move = function() {
-	this.a -= this.aReduction;
-	if (this.a <= 0) {
-		this.die();
-		return
-	}
-	this.color = "rgba(255,255,255,"+this.a+")";
-	this.linkColor = "rgba(255,255,255,"+this.a/4+")";
-	this.x = this.x + Math.cos(degToRad(this.dir))*(this.speed+params.dotsSpeed/100),
-	this.y = this.y + Math.sin(degToRad(this.dir))*(this.speed+params.dotsSpeed/100);
-
-	this.draw();
-	this.link();
-}
-
-Dot.prototype.die = function() {
-    dots[this.id] = null;
-    delete dots[this.id];
-}
-
-
-var canvas  = document.getElementById('canvas'),
-	ctx = canvas.getContext('2d'),
-	WIDTH,
-	HEIGHT,
-	mouseMoving = false,
-	mouseMoveChecker,
-	mouseX,
-	mouseY,
-	stars = [],
-	initStarsPopulation = 80,
-	dots = [],
-	dotsMinDist = 2,
-	params = {
-		maxDistFromCursor: 50,
-		dotsSpeed: 0,
-		backgroundSpeed: 0
-	};
-
-var gui;
-gui = new dat.GUI();
-gui.add(params, 'maxDistFromCursor').min(0).max(100).step(10).name('Size');
-gui.add(params, 'dotsSpeed').min(0).max(100).step(.5).name('Speed');
-gui.add(params, 'backgroundSpeed').min(0).max(150).step(1).name('Sky speed');
-gui.open();
-
-setCanvasSize();
-init();
-
-function setCanvasSize() {
-	WIDTH = document.documentElement.clientWidth,
-    HEIGHT = document.documentElement.clientHeight;                      
-
-	canvas.setAttribute("width", WIDTH);
-	canvas.setAttribute("height", HEIGHT);
-}
-
-function init() {
-	ctx.strokeStyle = "white";
-	ctx.shadowColor = "white";
-	for (var i = 0; i < initStarsPopulation; i++) {
-		stars[i] = new Star(i, Math.floor(Math.random()*WIDTH), Math.floor(Math.random()*HEIGHT));
-		//stars[i].draw();
-	}
-	ctx.shadowBlur = 0;
-	animate();
-}
-
-function animate() {
-    ctx.clearRect(0, 0, WIDTH, HEIGHT);
-
-    for (var i in stars) {
-    	stars[i].move();
-    }
-    for (var i in dots) {
-    	dots[i].move();
-    }
-    drawIfMouseMoving();
-    requestAnimationFrame(animate);
-}
-
-window.onmousemove = function(e){
-	mouseMoving = true;
-	mouseX = e.clientX;
-	mouseY = e.clientY;
-	clearInterval(mouseMoveChecker);
-	mouseMoveChecker = setTimeout(function() {
-		mouseMoving = false;
-	}, 100);
-}
-
-
-function drawIfMouseMoving(){
-	if (!mouseMoving) return;
-
-	if (dots.length == 0) {
-		dots[0] = new Dot(0, mouseX, mouseY);
-		dots[0].draw();
-		return;
-	}
-
-	var previousDot = getPreviousDot(dots.length, 1);
-	var prevX = previousDot.x; 
-	var prevY = previousDot.y; 
-
-	var diffX = Math.abs(prevX - mouseX);
-	var diffY = Math.abs(prevY - mouseY);
-
-	if (diffX < dotsMinDist || diffY < dotsMinDist) return;
-
-	var xVariation = Math.random() > .5 ? -1 : 1;
-	xVariation = xVariation*Math.floor(Math.random()*params.maxDistFromCursor)+1;
-	var yVariation = Math.random() > .5 ? -1 : 1;
-	yVariation = yVariation*Math.floor(Math.random()*params.maxDistFromCursor)+1;
-	dots[dots.length] = new Dot(dots.length, mouseX+xVariation, mouseY+yVariation);
-	dots[dots.length-1].draw();
-	dots[dots.length-1].link();
-}
-//setInterval(drawIfMouseMoving, 17);
-
-function degToRad(deg) {
-	return deg * (Math.PI / 180);
-}
+// Estrellas con sus respectivas rutas de imagen, texto, y fecha
+const estrellas = [
+	{ x: 300, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/1.jpg', texto: 'Estrella 1: Brillante y poderosa.', fecha: '2024-12-30' },
+	{ x: 500, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/2.jpg', texto: 'Estrella 2: La más cercana al horizonte.', fecha: '2024-12-30' },
+	{ x: 700, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/3.jpg', texto: 'Estrella 3: Un símbolo de luz.', fecha: '2024-12-30' },
+	{ x: 400, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/4.jpg', texto: 'Estrella 4: Estrella fugaz.', fecha: '2024-12-30' },
+	{ x: 600, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/5.jpg', texto: 'Estrella 5: Constelación de fuego.', fecha: '2024-12-30' },
+	{ x: 800, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/6.jpg', texto: 'Estrella 6: Guardiana del cielo.', fecha: '2024-12-30' },
+	{ x: 200, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/7.jpg', texto: 'Estrella 7: La viajera intergaláctica.', fecha: '2024-12-30' },
+	{ x: 1000, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/8.jpg', texto: 'Estrella 8: La estrella del amanecer.', fecha: '2024-12-30' },
+	{ x: 300, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/9.jpg', texto: 'Estrella 9: En el horizonte lejano.', fecha: '2024-12-30' },
+	{ x: 1200, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/10.jpg', texto: 'Estrella 10: La estrella polar.', fecha: '2024-12-30' },
+	{ x: 800, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/11.jpg', texto: 'Estrella 11: Una guía en la noche.', fecha: '2024-12-30' },
+	{ x: 1100, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/12.jpg', texto: 'Estrella 12: Centelleante y misteriosa.', fecha: '2024-12-30' },
+	{ x: 150, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/13.jpg', texto: 'Estrella 13: Un punto luminoso en la oscuridad.', fecha: '2024-12-30' },
+	{ x: 600, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/14.jpg', texto: 'Estrella 14: Lejana y resplandeciente.', fecha: '2024-12-30' },
+	{ x: 1300, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/15.jpg', texto: 'Estrella 15: Siempre brillante en el cielo.', fecha: '2024-12-30' },
+	{ x: 450, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/16.jpg', texto: 'Estrella 16: Una estrella fugaz.', fecha: '2024-12-30' },
+	{ x: 950, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/17.jpg', texto: 'Estrella 17: Espléndida y fuerte.', fecha: '2024-12-30' },
+	{ x: 200, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/18.jpg', texto: 'Estrella 18: Estrella solitaria.', fecha: '2024-12-30' },
+	{ x: 1200, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/19.jpg', texto: 'Estrella 19: Un faro en el universo.', fecha: '2024-12-30' },
+	{ x: 500, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/20.jpg', texto: 'Estrella 20: En el centro del cosmos.', fecha: '2024-12-30' },
+	{ x: 150, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/21.jpg', texto: 'Estrella 21: Siempre luminosa.', fecha: '2024-12-30' },
+	{ x: 1300, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/22.jpg', texto: 'Estrella 22: Un destello brillante.', fecha: '2024-12-30' },
+	{ x: 950, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/23.jpg', texto: 'Estrella 23: Refugio en la oscuridad.', fecha: '2024-12-30' },
+	{ x: 200, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/24.jpg', texto: 'Estrella 24: Un toque de luz.', fecha: '2024-12-30' },
+	{ x: 800, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/25.jpg', texto: 'Estrella 25: Un rayo en la noche.', fecha: '2024-12-30' },
+	{ x: 300, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/26.jpg', texto: 'Estrella 26: Como un cometa.', fecha: '2024-12-30' },
+	{ x: 1200, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/27.jpg', texto: 'Estrella 27: Reluciente y viva.', fecha: '2024-12-30' },
+	{ x: 450, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/28.jpg', texto: 'Estrella 28: Una chispa fugaz.', fecha: '2024-12-30' },
+	{ x: 700, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/29.jpg', texto: 'Estrella 29: En la ruta de los sueños.', fecha: '2024-12-30' },
+	{ x: 1100, y: Math.random() * 0.3 * window.innerHeight, foto: 'fotos/30.jpg', texto: 'Estrella 30: La más luminosa del cielo.', fecha: '2024-12-30' },
+	// Puedes agregar más estrellas
+  ];
+  
+  // Cargar las estrellas en el contenedor
+  const contenedor = document.getElementById('constelacion');
+  estrellas.forEach((estrella, index) => {
+	const divEstrella = document.createElement('div');
+	divEstrella.classList.add('estrella-constelacion');
+	divEstrella.style.left = `${estrella.x}px`;
+	divEstrella.style.top = `${estrella.y}px`;
+	divEstrella.dataset.index = index;
+  
+	contenedor.appendChild(divEstrella);
+  
+	// Mostrar la información al hacer clic o pasar el cursor
+	divEstrella.addEventListener('mouseenter', () => mostrarInfo(estrella));  // Al pasar el mouse
+	divEstrella.addEventListener('click', () => mostrarInfo(estrella));  // Al hacer clic
+  });
+  
+  // Función para mostrar la información de la estrella
+  function mostrarInfo(estrella) {
+	const infoDiv = document.getElementById('info-estrella');
+	const texto = document.getElementById('texto');
+	const foto = document.getElementById('foto');
+	const fecha = document.getElementById('fecha');
+	
+	texto.textContent = estrella.texto;
+	foto.src = estrella.foto;
+	fecha.textContent = `Fecha: ${estrella.fecha}`;  // Mostrar la fecha
+  
+	infoDiv.style.display = 'block';  // Hacer visible el cuadro de información
+  }
+  
