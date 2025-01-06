@@ -2,9 +2,9 @@
 const estrellas = [
 	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/1.jpg', texto: 'Estrella 1: La primera foto tuya del año, eres tan linda, no puedo expresar toda la felicidad que me traes cuando hablo contigo, asi que lo resumire en un: te amo mucho amorcito <3', fecha: '01-01-2025' },
 	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/2.jpg', texto: 'Estrella 2: Tambien extraño a kiki, pero, es por un bien mayor, quiero poder estar contigo lo mas antes posible, solo, esperame...', fecha: '02-01-2025' },
-	//{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/3.jpg', texto: 'Estrella 3: Segunda foto que me enviaste.', fecha: '2024-10' },
-	//{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/4.jpg', texto: 'Estrella 4: Recuerdo que, me dijiste que te dolìa usar esos tacos', fecha: '2024-10' },
-	//{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/5.jpg', texto: 'Estrella 5: Foto Poly 🦜', fecha: '2024-10' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/3.jpg', texto: 'Estrella 3: Para mi eres la mejor cocinera, te quiero mucho, cariño.', fecha: '03-01-2025' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/4.jpg', texto: 'Estrella 4: No se cuanto habràs sufrido antes, y se que ese dolor sigue en ti, pero, pase lo que pase, nunca te abandonarè, te lo prometo', fecha: '2024-10' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/5.jpg', texto: 'Estrella 5: Eres mas linda de lo que crees, ya sea con tu pelo seco o mojado, te amo Jandy', fecha: '2024-10' },
 	//{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/6.jpg', texto: 'Estrella 6: Cuando veo esto, lagrimeo un poco, de verdad gracias.', fecha: '2024-10' },
 	//{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/7.jpg', texto: 'Estrella 7: Relajadito.', fecha: '2024-11' },
 	//{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/8.jpg', texto: 'Estrella 8: Mango helado 🥭.', fecha: '2024-10' },
