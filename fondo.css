@@ -65,6 +65,7 @@ body {
   }
   
   .info-estrella {
+
     position: fixed;
     top: 20px;
     right: 20px;
@@ -73,6 +74,7 @@ body {
     padding: 15px;
     border-radius: 10px;
     display: none;
+    max-width: 300px; 
   }
   
   .info-estrella img {

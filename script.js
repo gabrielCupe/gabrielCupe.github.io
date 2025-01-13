@@ -8,12 +8,11 @@ const estrellas = [
 	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/6.jpg', texto: 'Estrella 6: Pasè lo que pasè, prometo siempre amarte. en las buenas y en las malas, y me esforzarè para tenerte en mi futuro, lo prometo', fecha: '06-01-2025' },
 	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/7.jpg', texto: 'Estrella 7: Te ves realmente muy linda, mas de lo que tu crees, como pude hacerme novio de una chica ta linda, tanto con tu pelo corto o largo, para mi eres la chica mas linda, te amo cariño <3', fecha: '07-01-2025' },
 	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/8.jpg', texto: 'Estrella 8: Octubre o Diciembre, mi amor que siento hacia ti no ha cambiado, siento que te amo cada dìa mas, y espero que cuando llegue el dia de nuestro aniversario, podamos pasarlo, juntos, Te Amo Jandy.', fecha: '08-01-2025' },
-	//{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/9.jpg', texto: 'Estrella 9: Realmente, Te ves muy linda con la vincha <3.', fecha: '2024-11' },
-	//{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/10.jpg', texto: 'Estrella 10: Foto kiki, Te amo Jandy', fecha: '2024-11' },
-	// Continúa para las demás estrellas...
-	// Aquí puedes agregar hasta 30 o más estrellas con su propio texto y fecha
-  ];
-  
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/9.jpg', texto: 'Estrella 9: Sabes, quisiera abrazarte ahora mismo, tomarte de la mano y nunca soltarla ', fecha: '09-01-2025' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/10.jpg', texto: 'Estrella 10: Al parecer kiki ha estado mas hiperactiva que de costumbre, y quien no lo estaria,  si tiene como dueña a la chica  mas linda que uno puede pedir, te amo jandy <3', fecha: '10-01-2025' },	// Continúa para las demás estrellas...
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/11.jpg', texto: 'Estrella 11: Peluche de capibara,entiendo tu frustracion de ir a vacacional, se que este año te ira bien, ningun esfuerzo es en vano,te lo prometo', fecha: '11-01-2025' },
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/12.jpg', texto: 'Estrella 12: ¿Ya esta mejor tu pierna? Sabes, la verdad es que no se como pude hacerme novio de una chica tan linda, te acuerdas de la propuesta de la mañana?, si, acepto con mucho gusto casarme contigo y en un futuro formar hogar, Te Amo Cariño 💞', fecha: '12-01-2025' },	
+		]
   // Cargar las estrellas en el contenedor
   const contenedor = document.getElementById('constelacion');
   estrellas.forEach((estrella, index) => {
