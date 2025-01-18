@@ -12,7 +12,14 @@ const estrellas = [
 	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/10.jpg', texto: 'Estrella 10: Al parecer kiki ha estado mas hiperactiva que de costumbre, y quien no lo estaria,  si tiene como dueña a la chica  mas linda que uno puede pedir, te amo jandy <3', fecha: '10-01-2025' },	// Continúa para las demás estrellas...
 	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/11.jpg', texto: 'Estrella 11: Peluche de capibara,entiendo tu frustracion de ir a vacacional, se que este año te ira bien, ningun esfuerzo es en vano,te lo prometo', fecha: '11-01-2025' },
 	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/12.jpg', texto: 'Estrella 12: ¿Ya esta mejor tu pierna? Sabes, la verdad es que no se como pude hacerme novio de una chica tan linda, te acuerdas de la propuesta de la mañana?, si, acepto con mucho gusto casarme contigo y en un futuro formar hogar, Te Amo Cariño 💞', fecha: '12-01-2025' },	
-		]
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/13.jpg', texto: 'Estrella 13: Sabes, cuando miro el atardecer, veo un motivo, una razon para seguir adelante, y esa eres tu, cariño', fecha: '13-01-2025' },	
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/14.jpg', texto: 'Estrella 14: Los martes son realmente atareados para mi, llegar a mi casa y encontrar un mensaje tuyo o hablarte cuando estoy de regreso  a ella, me hace, muy feliz, te quiero mucho amorcito, nunca lo olvides <3', fecha: '14-01-2025' },	
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/15.jpg', texto: 'Estrella 15: Algo que amo de ti, es la simplesa que con un simple gesto puedes alegrar mi dia, gracias por, tenerte en mi vida, creo que un te amo se queda muy corto a todo lo que siento por ti Jandy 💞', fecha: '15-01-2025' },	
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/16.jpg', texto: 'Estrella 16: Realmente no me interesa lo que pueda llegar a pensar la gente, para mi la chica mas linda es mi Jandysita, me gustaria que tu tambien puedas verlo  💞', fecha: '16-01-2025' },	
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/17.jpg', texto: 'Estrella 17: Realmente el tiempo pasa muy rapido, parece ayer cuando recibi tu mensaje, de pronto un dia decidimos conocernos presencialmente, al otro abrazarnos, despues nos tomamos de las manos, se que pasaran muchas mas cosas, ¿te cuento un secreto?, te amo mas que a nada en este mundo <3', fecha: '17-01-2025' },	
+		
+
+]
   // Cargar las estrellas en el contenedor
   const contenedor = document.getElementById('constelacion');
   estrellas.forEach((estrella, index) => {
