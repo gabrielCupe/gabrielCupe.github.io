@@ -17,7 +17,16 @@ const estrellas = [
 	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/15.jpg', texto: 'Estrella 15: Algo que amo de ti, es la simplesa que con un simple gesto puedes alegrar mi dia, gracias por, tenerte en mi vida, creo que un te amo se queda muy corto a todo lo que siento por ti Jandy 💞', fecha: '15-01-2025' },	
 	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/16.jpg', texto: 'Estrella 16: Realmente no me interesa lo que pueda llegar a pensar la gente, para mi la chica mas linda es mi Jandysita, me gustaria que tu tambien puedas verlo  💞', fecha: '16-01-2025' },	
 	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/17.jpg', texto: 'Estrella 17: Realmente el tiempo pasa muy rapido, parece ayer cuando recibi tu mensaje, de pronto un dia decidimos conocernos presencialmente, al otro abrazarnos, despues nos tomamos de las manos, se que pasaran muchas mas cosas, ¿te cuento un secreto?, te amo mas que a nada en este mundo <3', fecha: '17-01-2025' },	
-		
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/18.jpg', texto: 'Estrella 18: ', fecha: '18-01-2025' },		
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/19.jpg', texto: 'Estrella 19:', fecha: '19-01-2025' },	
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/20.jpg', texto: 'Estrella 20:', fecha: '20-01-2025' },	
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/21.jpg', texto: 'Estrella 21:', fecha: '21-01-2025' },	
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/22.jpg', texto: 'Estrella 22:', fecha: '22-01-2025' },	
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/23.jpg', texto: 'Estrella 23:', fecha: '23-01-2025' },		
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/24.jpg', texto: 'Estrella 24:', fecha: '24-01-2025' },	
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/25.jpg', texto: 'Estrella 25:', fecha: '25-01-2025' },	
+	{ x: Math.random() * window.innerWidth, y: Math.random() * (window.innerHeight * 0.3), foto: 'imagenes/26.jpg', texto: 'Estrella 26:', fecha: '26-01-2025' },		
+
 
 ]
   // Cargar las estrellas en el contenedor
