@@ -1,308 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notas</title>
-  <style>
-body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Courier New', monospace;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background: url('fondo.png') no-repeat center center;
-  background-size: cover;
-  background-attachment: fixed; /* O 'scroll' si 'fixed' sigue causando problemas */
-  overflow-y: auto;
-} 
-  .texto{
-  text-align: center;
-   color: white
-  }
-
-.verification {
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  padding: 40px 30px;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  text-align: center;
-  color: #ffffff;
-  max-width: 400px;
-  width: 90%;
-  margin: auto;
-  font-family: 'Arial', sans-serif;
-}
-
-.verification h2 {
-  margin-bottom: 20px;
-  font-size: 2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.verification p {
-  margin-bottom: 15px;
-  font-size: 1.2rem;
-}
-
-.verification input {
-  margin: 10px 0;
-  padding: 12px 15px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.9);
-  color: #333333;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.verification input:focus {
-  outline: none;
-  border: 2px solid #ffffff;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-}
-
-.verification button {
-  margin-top: 20px;
-  padding: 12px 30px;
-  font-size: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  background: #ffffff;
-  color: #00aaff;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.verification button:hover {
-  transform: scale(1.1);
-  background: #00aaff;
-  color: #ffffff;
-}
-
-.verification button:active {
-  transform: scale(0.95);
-  box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-    /* Contenedor principal */
-    .container {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      padding: 20px;
-      box-sizing: border-box;
-      height: 100%;
-      backdrop-filter: blur(10px);
-    }
-
-    /* Bloque de la izquierda dividido en dos */
-    .left-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 65%; /* Ocupa el 65% del ancho */
-      padding-right: 20px;
-    }
-
-    /* Bloque de mensaje */
-    .message-block {
-      background: rgba(255, 255, 255, 0.7);
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      height: 250px;
-      overflow-y: auto;
-    }
-
-    /* Bloque para formulario */
-    .form-block {
-      margin-top: 20px;
-    }
-
-    .area {
-      width: 80%;
-      height: 100px;
-      padding: 10px;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-
-    .boton {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      background: #5fa8d3;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s, background 0.3s;
-    }
-
-    .boton:hover {
-      transform: scale(1.1);
-      background: #4697c1;
-    }
-
-    /* Bloque de la derecha para los botones de las cartas */
-    .right-container {
-      width: 30%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: center;
-    }
-
-    li {
-      margin: 10px 0; /* Separar cada botón */
-    }
-
-    a {
-      text-decoration: none;
-      font-size: 1.2rem;
-      color: #ffffff;
-      background: #5fa8d3;
-      padding: 10px 20px;
-      border-radius: 20px;
-      transition: background 0.3s, transform 0.2s;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      display: inline-block;
-    }
-
-    a:hover {
-      background: #4697c1;
-      transform: scale(1.1);
-    }
-
-    /* Foto Kiki del día */
-    .photo-kiki {
-      margin-top: 40px;
-      text-align: center;
-      color: white;
-    }
-
-    .photo-kiki h2 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-    }
-
-    .photo-kiki img {
-      width: 80%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      border: 10px solid #ffffff; /* Marco blanco */
-      padding: 5px; /* Espacio entre la imagen y el marco */
-      background: #ffffff; /* Fondo blanco para el marco */
-    }
-
-    /* Estilos adaptativos para pantallas pequeñas */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-      }
-
-      .left-container, .right-container {
-        width: 100%;
-        margin-bottom: 20px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para esa persona que amo ❤️</title>
+    <link rel="stylesheet" href="principal.css">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>Para mi Jandysita ❤️</h1>
+            <p>Eres la persona más especial en mi vida.</p>
+        </header>
+        <section class="gallery">
+            <div class="photo">
+                <img src="f2.jpg" alt="Nuestra foto">
+                <p>Siempre sonríes e iluminas mi día. Nunca cambies c:</p>
+            </div>
+        </section>
+        <section class="message">
+            <h2>Un pequeño mensaje para ti:</h2>
+            <p>
+                Querida Jandy,<br>
+                Eres lo más importante en mi vida. Cada momento a tu lado es especial y quiero que sepas que te amo con todo mi corazón. Gracias por ser mi compañera, por estar conmigo tanto en las buenas como en las malas, gracias por ser mi apoyo y mi inspiración, las cosas otra ves estan tensas, supongo que no hay mal que por bien no venga, por mientras, espero que esteas bien, sé que este año vas a lograr grandes cosas, tú puedes c:, el lunes inician mis clases, y la verdad es que me hubiera gustado contarte todo, pero sé que en este div no caben muchas palabras, asi que tengo que ser breve, sabes, puede que no nos permitan vernos, pero no significa necesariamente dejar de hablar, quisiera conversar algunos temas con tu madre, entiendo su preocupación, cuidate mucho, espero volver a hablar pronto contigo ❤️
+            </p>
+        </section>
 
-  <div class="verification">
-    <h2>Verificación</h2>
-    <p>¿Como se llama el gato que aparece en la portada?</p>
-    <input type="text" id="question1" placeholder="Ingresa tu respuesta">
-    <p>¿A que carrera de la UNI estoy postulando?</p>
-    <input type="text" id="question2" placeholder="Ingresa tu respuesta">
-    <button onclick="verifyAnswers()">Verificar</button>
-  </div>
-  
+        <!-- Formulario para enviar mensaje -->
+        <div class="form-block">
+            <form action="https://formspree.io/f/xbllrpvl" method="POST">
+                <input type="hidden" name="_redirect" value="https://gabrielcupe.github.io">
+                <label>
+                    <textarea name="message" placeholder="Antes de enviar algo, por favor lee lo de arriba" class="area"></textarea>
+                </label>
+                <button type="submit" class="boton">Enviar</button>
+            </form>
+        </div>
 
-
-
-
-
-  <div class="container" style="display: none;">
-    <!-- Bloque de la izquierda -->
-    <div class="left-container">
-      <!-- Bloque de mensaje -->
-      <div class="message-block">
-        <p>Quiero saber si estas bien, no sabes lo mucho que me cuesta escribir esto, creo que, esta ves, ya nadie mas nos va a apoyar, por qué la vida es asi. Tu mamá estará mas alerta a todo lo que hagas, no la juzgo, creo que como cualquier madre se preocupa acerca del bienestar de sus hijos y con quienes anda, no puedo hecharle la culpa de nada,ni reprocharle o justificarme, acepta todo lo que te diga, la verdad, es que se nos hará mucho mas complicado comunicarnos, ayer me amenazó con denunciarme si te volvía a escribir, no se que opine al respecto tu hermana, voy a disimular todo esto, al igual que tambien quiero que tu lo hagas,quizas el tiempo haga pasar todo, solo pido que en el momento que leas esto, sigas conservando esa confianza que siempre le tenías. Una vez me dijo, "el que ama, espera" y si es la única forma en la cúal puedo no perderte, aunque me cueste hacerlo lo haré, actualizaré este mensaje a las 9pm de manera cada 2 días, no podemos hablarnos a cada rato, de lo contrario podemos agravar mas las cosas, solo quiero que, seas feliz, pase lo que pase, quiero que sonrias, no quiero verte triste, no llores, ten fe que, tarde o temprano todo esto acabará, los años pasan rápido, espero puedas leer esto. </p>
-      </div>
-
-      <!-- Formulario para enviar mensaje -->
-      <div class="form-block">
-        <form action="https://formspree.io/f/xbllrpvl" method="POST">
-          <input type="hidden" name="_redirect" value="https://gabrielcupe.github.io">
-          <label>
-            <textarea name="message" placeholder="Antes de enviar algo, porfavor lee lo de arriba" class="area"></textarea>
-          </label>
-          <button type="submit" class="boton">Enviar</button>
-        </form>
-      </div>
+        <footer>
+            <p>Copyrigth y derechos reservados 💖 (2025 - 03)</p>
+            <p>posdata: ¿te he dicho hoy lo mucho que te amo?</p>
+        </footer>
     </div>
-
-    <!-- Bloque de la derecha para los botones de cartas -->
-    <div class="right-container">
-      <p class="texto">Remodelaciones pronto</p>
-      <!--ul>
-        <li><a href="carta1.html">Carta 1: Diciembre</a></li>
-        <li><a href="error.html">Carta 2: ---</a></li>
-        <li><a href="error.html">Carta 3: ----</a></li>
-        <!-- Añade más cartas aquí -->
-      <!--/ul>
-
-      <!-- Foto Kiki del día -->
-      <div class="photo-kiki">
-        <h2>Foto Kiki del día</h2>
-        <img src="foto_kiki.png" alt="Foto Kiki del día">
-      </div>
-    </div>
-  </div>
-
+    <script src="principal.js"></script>
 </body>
 </html>
-<script>
-  function verifyAnswers() {
-    const question1 = document.getElementById('question1').value.trim().toLowerCase();
-    const question2 = document.getElementById('question2').value.trim().toLowerCase();
-
-    // Respuestas correctas
-    const correctAnswer1 = 'kiki';
-    const correctAnswer2 = ['ingenieria quimica', 'ing quimica', 'ing. quimica'];
-
-    if (question1 === correctAnswer1 && correctAnswer2.some(answer => question2.includes(answer))) {
-      document.querySelector('.verification').style.display = 'none';
-      document.querySelector('.container').style.display = 'flex';
-      document.body.classList.add('content-visible');
-    } else {
-      alert('Respuestas incorrectas. Verifica las respuestas, las respuestas no llevan tildes ni puntos');
-    }
-  }
-</script>
